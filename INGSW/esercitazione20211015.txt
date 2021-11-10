@@ -1,0 +1,4 @@
+GIT
+è un software usato per il versioning del codice
+si usa sia da riga di comando che da interfaccia
+serve per lavorare sullo stesso file sia in locale che in remoto.

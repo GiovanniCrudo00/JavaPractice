@@ -1,0 +1,101 @@
+r(x,y):-q(x),q(y),x<y ------------------->è una regola di uscita
+p(x,y):-r(x,z),p(z,y)
+q(1). q(2). q(3). p(3,1). p(3,2).
+
+C'è la ricorsione tra p e p siccome sta sia in testa che nel corpo
+
+r(1,2) r(1,3) r(2,3) siccome rispettano la regola x<y e non ci saranno altri valori assegnabili alle variabili di r.
+
+r(1,2) P non va bene
+
+r(1,3) va bene siccome ho P(3,1) e derivo P(1,1) per P(3,2) invece derivo P(2,1) per R(3,2) derivo P(1,2) e P(2,2)
+
+{r(1,2) ,r(1,3),r(2,3),p(1,1),p(2,1),p(1,2),p(2,2)} ma questi non mi generano altri valori.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+ATOMI NEGATI
+
+s(X,Y):- arc(X,Y), not arc(Y,X).
+
+Per usare le negazione in un programma DATALOG le regole devono essere SAFE,
+Ogni variabile in testa
+Ogni variabile nel letterale negativo
+Ogni variabile è in un operatore di comparazione(<,>,=)
+In parole semplici ogni variabile deve apparire nel corpo positivo della regola.
+
+s(X):- a.
+s(Y):- b(Y),not r(X). la Y in testa è OK per la Y nel corpo positivo, mentre la X del corpo negativo non ha letterali positivi. NOT SAFE
+s(X):- not r(X). la X nel corpo negativo non viene salvata da nessun letterale positivo di X. NOT SAFE
+s(Y):- b(Y),X<Y
+
+Ricorsione e negazione non possono stare assieme, nella ricorsione non ci devono essere atomi negati.
+
+IDB-->p(X):-q(X), not p(X). la regola è SAFE siccome è presente un letterale positivo che salva quello negativo.
+EDB-->q(1). q(2).
+
+
+I(0)={}
+I(1)=I(0) u {p(1),p(2)}
+I(2)=I(1) u {}  Insieme vuoto siccome la regola non parte
+
+Si crea un ciclo in cui derivo p(1) e p(2) e poi li riperdo perchè non posso derivare P se non c'è P all' iterazione successiva.
+
+La valutazione naive non vale se ci sono letterali negativi, mentre se la negazione è contenuta nella ricorsione non ha senso.
+La negazione deve dunque essere stratificata, cioè non presente in cicli quali la ricorsione.
+
+DEFINIZIONE DI PROGRAMMA STRATIFICATO-->Per definire la stratificazione si usa un grafo delle dipendenze che descrive come le regole dipendono l'una dall' altra.
+	Nodi-->predicati IDB
+	Archi se un predicato a dipende da b allora si crea un arco b->a siccome a è nella testa e b è nel corpo della regola. L' etichetta dell' arco risulta "-" se l' occorrenza è negata.
+
+p(X,Y):-q(X),q(Y),x<y.
+p(Y,X):-p(X,Z),not r(Y,Y).
+
+.p
+la seconda regola mi fa mettere arco da p a se stesso
+P<-->p
+ e anche un arco da p a r stesso negativo !(p<--->r)
+
+ p<--->p<----r il programma è stratificato.
+
+ Il programma è dunque stratifgicato se nel dependency graph nessun ciclo è negato.
+
+ Usiamo il grafo delle dipendenze per dividere il programma in strati che vanno poi analizzati pezzo per pezzo.
+
+ Un programma datalog ha un modello che chiamiamo minimo, nei programmi positivi modello minimo e modello minimale coincidono
+ Minimale-->nessun sotto-insieme che gode della stessa proprietà, un' interpretazione che soddisfa le regole del programma e per la quale non esiste un sottinsieme che a sua volta è un modello che soddisfa tutte le regole del programma. E' UN MODELLO CHE NON CONTIENE UN MODELLO.
+
+
+ a:-b
+ {a,b} è un modello
+
+ {},{a},{b} sono sotto-insiemi ma {a} è a sua volta un modello che contiene a sua volta {} che è un modello.
+
+ Solo nei programmi DATALOG positivi modello minimo e minimale sono coincidenti.
+ Se è presente la negazione possono uscire più modelli minimali
+
+a:- not b.
+{a},{b} sono entrambi modelli minimali.
+
+{} non è un modello siccome è una regola con corpo vero ma con testa falsa.
+
+L'unico che mi interessa è {a} siccome il TP prende le regole la cui testa viene spinta da qualcosa, in questo caso "a" viene spinto da "not b".
+
+
+Il modello minimale che vado a preferire si chiama ANSWER SET.
+un programma datalog stratificato ha un unico answer set.
+
+SOTTOPROGRAMMA--> si identifica un sottoprogramma come una componente del grafo delle dipendenze che è fortemente connesso.
+Il sottoprogramma della componente subP(C) contiene un set di regole che hanno in testa predicati di C.
+In particolare mi interessano le componenti fortemente connesse massimali, nelle quali non esiste un sovrainsieme a sua volta fortemente connesso.
+
+Dalle componenti posso identificare delle regole del programma.
+
+a:-not b
+b:-d
+
+b-->a negato
+Componente {a} l'output che mi arriva da {b} è {} che genera a sua volta il vuoto.
+Componente {b} il Tp mi calcola {} siccome d è falso non essendo fatto
+
+Il risultato è {} che deriva {a} siccome not b con {} è vero.

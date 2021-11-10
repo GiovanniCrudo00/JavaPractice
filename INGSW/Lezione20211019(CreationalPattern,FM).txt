@@ -1,0 +1,31 @@
+CREATIONAL PATTERN
+-)Factory Method(FM)
+-)Abstract Factory(AF)
+-)Singleton(SI)
+-)Prototype(PR)
+-)Builder(BU)
+
+FACTORY METHOD
+INTENTO-->Definire un' interfaccia per crere un oggetto lasciando alle sottoclassi la decisione su quale classe istanziare
+AKA-->Costruttore Virtuale
+Ad esempio considerando un framework che deve gestire la presentazione di diversi documenti, noi non sappiamo a priori
+che tipo di documento l'utente vorrà aprire.
+
+Si utilizza quando una classe non può anticipare l' oggetto che deve creare e si aspetta che siano le sue sottoclassi a 
+contenere il codice che specifichi come gestire quel tipo di oggetto.
+
+Conseguenze del pattern FM
+-)Elimina il bisogno di legare una specifica parte di codice ad una certa applicazione
+-)I clienti devono solo creare una sottoclasse Cratore solo per creare un certo oggetto da gestire.
+-)Creare un oggetto dentro una classe FM è in genere più flessibile che crearlo direttamente.
+--)FM da alle sottoclassi la possibilità di creare una versione estesa dell' oggetto.
+
+Implementazioni di FM
+2 possibilità:
+-)Il creatore è una classe astratta che non può essere istanziata e non provvede un' implementazione al FM che contiene.
+-)Il creatore è una classe concreta che provvede un' implementazione al FM che contiene.
+
+Metodi Factory Parametrizzati:
+I metodi factory creano diversi tipi di prodotti, e si aspettano un parametro che identifichi l' oggetto che si sta istanziando.
+E' consigliare usare i template per evitare le sottoclassi.
+

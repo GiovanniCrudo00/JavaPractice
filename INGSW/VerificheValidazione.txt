@@ -1,0 +1,36 @@
+VERIFICHE E VALIDAZIONE 
+V & V Confidence --> dipende dallo scopo del sistema, dalle aspettative del cliente e dall' ambiente di marketing.
+	FUNZIONI DEL SOFTWARE
+	dipendono dalle criticità del software e dalla sua organizzazione.
+	ASPETTATIVE DELL' UTENTE
+	i clienti potrebbero avere basse aspettative del software
+	
+ISPEZIONE DEL SOFTWARE
+	Si analizza fisicamente il codice linea per linea verificando la sintassi e la semantica, queste sono VERIFICHE STATICHE
+TESTING DEL SOFTWARE
+	Si sollecita il programma con input e output per scoprire se ci sono errori, queste sono VERIFICHE DINAMICHE
+	
+TIPI DI TESTING
+	DEFECT TESTING--> deve trovare errori nel codice.
+	VALIDATION TESTING--> verifica se il software rispetta le specifiche e non genera errori.
+	
+ISPEZIONI DEL PROGRAMMA
+	Si guarda il codice per capire se ci sono o meno errori, come ad esempio variabili non iniializzate, memoria dinamica non deallocata, etc... 
+	Ormai i controlli sono automatizzati nel compilatore.
+	
+Testing dei componenti--> Singole parti di codice vengono testate.
+Testing del sistema--> Test completo dell' intera infrastruttura del software.
+
+Non avendo certezza matematica della corretteza del software, solo una serie esaustiva di test può provarne la correttezza e robustezza
+
+INTEGRATION TEST
+	Si ha accesso al codice sorgente, il sistema è testato e i componenti integrati 
+	BOTTOM-UP--> parto dalle componenti più grandi.
+	TOP-DOWN-->parto dalle componenti più piccole.
+	
+TESTING DI RELEASE
+	si tratta di trattare il codice come una black box dando diversi input e verificando che gli output siano quelli desiderati.
+	
+	
+	
+	

@@ -1,0 +1,11 @@
+LEZIONE 07/10/2021
+
+JUNIT--> Framework di java per eseguire i test.
+TestCase--> metodo che verifica una fuzionalità del software
+TestSuite-->insieme di test case
+
+JUNIT ANNOTATIONS
+@Before-->metodo invocato prima di ogni testCase
+@After-->metodo invocato dopo ogni testCase
+@BeforeClass-->metodo invocato all' inizio del test
+@AfterClass-->invocto alla fine del test

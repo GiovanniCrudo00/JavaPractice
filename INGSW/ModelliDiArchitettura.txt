@@ -1,0 +1,41 @@
+MODELLI DELL' ARCHITETTURA.
+
+Sono usati per documentare un design architetturale, ci sono MODELLI STATICI che descrivono larghe parti del sistema 
+e MODELLI DINAMICI che ne descrivono parti più piccole.
+
+MODELLO A REPOSITORY CENTRALIZZATA
+I sottosistemi devono poter scambiare dati tra loro, c'è una base di dati centralizzata che è 
+accessibile da tutti i sottosistemi. Ogni sottosistema non può effettuare modifiche alla struttura centrale.
+E' difficile effettuare modifiche dovendo rispettare le specifiche di ogni sottosistema.E' perciò difficile distribuire efficentemente.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+MODELLO CLIENT-SERVER
+E' un modello distribuito tra diversi componenti, c'è un gruppo di server stand-alone che forniscono servizi diversi
+e a cui i client fanno richieste.
+-)VANTAGGI
+	La distribuzione dei servizi è naturale, fa uso effettivo dei networked system, è facile da modificare per feature specifiche.
+-)SVANTAGGI
+	L' informazione transita sulla rete rallentandola, c'è una gestione ridondante dei server per assicurare sicurezza e
+	affidabilità siccome potrebbe essere difficile capire quali server e servizi non sono disponibili.E' presente una 
+	duplicazione delle informazioni nei vari sottosistemi.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+MODELLO A STRATI
+Identifica immediatamente le funzionalità dei sottosistemi.
+----------------------------------------
+CONFIGURATION MANAGMENT SYSTEM LAYER
+OBJECT MANAGMENT SYSTEM LAYER
+DATABASE MANAGMENT SYSTEM LAYER
+OPERATING SYSTEM LAYER
+----------------------------------------
+SOTTOSISTEMI E MODULI
+Ogni sottosistema è stand-alone la strategia di decomposizione può essere:
+OBJECT ORIENTED-->sistema diviso in entità che interagiscono.
+PIPELINE/DATA-FLOW MODEL-->sistema diviso in sottomoduli che gestiscono input e output, se possibile va gestita la concorrenza tra moduli.
+Supporta il riutilizzo delle informazioni, organizzazione intuitiva delle informazioni per la comunicazione con gli stakeholders.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+STILI DI CONTROLLO
+-)CONTROLLO CENTRALIZZATO
+	Tramite modelli CALL-RETURN a funzioni, MODELLO A MANAGER che è centralizzato.
+-)CONTROLLO AD EVENTI
+	di tipo broadcast inviato a tutti i subtask oppure a interruzioni dove si interrompe 
+	un' esecuzione per far intervenire un subtask
+	
