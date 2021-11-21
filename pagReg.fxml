@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root fx:id="root_Registration" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Registration_Controller">
+   <children>
+      <Button fx:id="backToHome" layoutX="52.0" layoutY="517.0" mnemonicParsing="false" onAction="#BackHome" text="Back to Home" textAlignment="CENTER" />
+      <TextField fx:id="textAreaNome" layoutX="253.0" layoutY="79.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="textAreaCognome" layoutX="253.0" layoutY="121.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="textAreaUsername" layoutX="253.0" layoutY="164.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="textAreaPass1" layoutX="253.0" layoutY="203.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="textAreaPass2" layoutX="253.0" layoutY="245.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+      <Label fx:id="labelNome" alignment="CENTER" layoutX="37.0" layoutY="79.0" prefHeight="29.0" prefWidth="171.0" text="Nome">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelCognome" alignment="CENTER" layoutX="37.0" layoutY="121.0" prefHeight="29.0" prefWidth="171.0" text="Cognome">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelUsername" alignment="CENTER" layoutX="37.0" layoutY="164.0" prefHeight="29.0" prefWidth="171.0" text="Username">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelPass1" alignment="CENTER" layoutX="37.0" layoutY="203.0" prefHeight="29.0" prefWidth="171.0" text="Password">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelPass2" alignment="CENTER" layoutX="37.0" layoutY="245.0" prefHeight="29.0" prefWidth="171.0" text="Ripeti password">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonRegistrati" layoutX="253.0" layoutY="340.0" mnemonicParsing="false" onAction="#registraUtente" prefHeight="29.0" prefWidth="196.0" text="Registrati" />
+      <Label fx:id="labelEmail" alignment="CENTER" layoutX="37.0" layoutY="286.0" prefHeight="29.0" prefWidth="171.0" text="Email">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textAreaEmail" layoutX="253.0" layoutY="286.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="72.0" fitWidth="200.0" layoutX="650.0" layoutY="481.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</fx:root>
