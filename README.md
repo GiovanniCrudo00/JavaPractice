@@ -1,2 +1,0 @@
-# JavaPractice
-IGPE
