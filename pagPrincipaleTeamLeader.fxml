@@ -104,7 +104,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <MenuBar prefHeight="63.0" prefWidth="613.0" style="-fx-background-color: orange;">
+            <MenuBar prefHeight="64.0" prefWidth="712.0" style="-fx-background-color: orange;">
               <menus>
                 <Menu mnemonicParsing="false" style="-fx-font-size: 20;" text="Projects">
                   <items>
@@ -142,12 +142,15 @@
                   </Menu>
               </menus>
             </MenuBar>
+            <ToggleButton fx:id="Dark_mode" mnemonicParsing="false" onAction="#Set_Dark" style="-fx-background-color: transparent;" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+               <graphic>
+                  <ImageView fx:id="immagine_luce" fitHeight="30.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" styleClass="bodybg" />
+               </graphic>
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </ToggleButton>
          </children>
       </GridPane>
-      <ToggleButton fx:id="Dark_mode" layoutX="354.0" layoutY="170.0" mnemonicParsing="false" onAction="#Set_Dark" textAlignment="RIGHT" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0">
-         <graphic>
-            <ImageView fx:id="immagine_luce" fitHeight="30.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" styleClass="bodybg" />
-         </graphic>
-      </ToggleButton>
    </children>
 </AnchorPane>
